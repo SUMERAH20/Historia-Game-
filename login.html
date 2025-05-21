@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia Game</title>
+    
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f7f7f7;
+            color: #333;
+            background-image: url('bg.jpg'); /* Set background image */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Title Bar */
+        header {
+            background-color: #D2B48C; /* Sand color */
+            color: #3E1F00; /* Dark Brown text */
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        #login-container,
+        #rules-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(210, 180, 140, 0.8); /* Sand color background with transparency */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 50px;
+            font-family: 'Georgia', serif;
+        }
+
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            font-style: italic;
+            color: #3E1F00; /* Dark Brown */
+        }
+
+        .input-container,
+        .button-container {
+            margin-bottom: 20px;
+        }
+
+        input,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-family: 'Georgia', serif;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        input {
+            background-color: #f4f4f4;
+        }
+
+        button {
+            background-color: #3E1F00; /* Dark Brown */
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2A1500; /* Slightly darker brown */
+        }
+
+        #login-message {
+            color: red;
+            text-align: center;
+        }
+
+        ol {
+            padding-left: 20px;
+        }
+
+        #message {
+            color: green;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+     Historia Game
+    </header>
+
+    <div id="login-container">
+        <h2>꧁♔Historia Game♔꧂</h2>
+        <form id="login-form">
+            <div class="input-container">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-container">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="button-container">
+                <button type="submit">Log In</button>
+            </div>
+            <p id="login-message"></p>
+        </form>
+    </div>
+
+    <div id="rules-container" style="display: none;">
+        <h2>Game Rules</h2>
+        <p>Welcome to the Historia Game! Here are the rules:</p>
+        <ol>
+            <li>Each player will take turns to draw a card from the timeline.</li>
+            <li>The goal is to correctly place the event on the timeline.</li>
+            <li>Incorrect answers will reset the progress, but you can try again!</li>
+            <li>Have fun learning history!</li>
+        </ol>
+        <div class="button-container">
+            <button onclick="startGame()">Start Game</button>
+        </div>
+    </div>
+
+    <script>
+        // Handle login
+        document.getElementById('login-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Check credentials
+            if (username === 'player' && password === 'game123') {
+                // Show rules page
+                document.getElementById('login-container').style.display = 'none';
+                document.getElementById('rules-container').style.display = 'block';
+            } else {
+                document.getElementById('login-message').textContent = 'Incorrect username or password.';
+            }
+        });
+
+        // Redirect to index.html page after clicking "Start Game"
+        function startGame() {
+            window.location.href = 'index.html'; // Redirect to index.html page
+        }
+    </script>
+
+    <div id="message"></div>
+</body>
+
+</html>
